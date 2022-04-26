@@ -91,6 +91,7 @@ GameObject:
   - component: {fileID: 4894330786803942648}
   - component: {fileID: 4894330786803942649}
   - component: {fileID: 4894330786803942650}
+  - component: {fileID: 2364436292631997630}
   m_Layer: 5
   m_Name: Britta
   m_TagString: Untagged
@@ -212,3 +213,16 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2364436292631997630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4894330786803942644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50457df27c3ae498abb4f317a5d70157, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 100
