@@ -4,36 +4,82 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
-    public static bool gameIsPaused = false;
-    public GameObject pauseMenuUI;
-    void Update()
+    // public static bool gameIsPaused = false;
+    // public GameObject pauseMenuUI;
+    // void Update()
+    // {
+    //     if (Input.GetKeyDown(KeyCode.Escape))
+    //     {
+    //         if (gameIsPaused)
+    //         {
+    //             Resume();
+    //             Debug.Log("Resume");
+    //         }
+    //         else
+    //         {
+    //             Pause();
+    //             Debug.Log("Pause");
+    //         }
+    //     }   
+    // }
+    //public void Resume()
+    // {
+    //     pauseMenuUI.SetActive(false);
+    //     Time.timeScale = 1f;
+    //     gameIsPaused = false;
+
+    // }
+    // public void Pause()
+    // {
+    //     pauseMenuUI.SetActive(true);
+    //     Time.timeScale = 0f;
+    //     gameIsPaused = true;
+    // }
+    // public void LoadMenu()
+    // {
+    //     Debug.Log("Load Menu");
+    //     SceneManager.LoadScene("SampleScene");
+    // }
+    // public void QuitGame()
+    // {
+    //     Debug.Log("Quit Game");
+    //     Application.Quit();
+    // }
+    [SerializeField] private GameObject pauseMenuUI;
+    [SerializeField] private bool isPaused = false;
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (gameIsPaused)
+            isPaused = !isPaused;
+            if (isPaused)
             {
-                Resume();
-                Debug.Log("Resume");
+                ActivateMenu();
             }
             else
             {
-                Pause();
-                Debug.Log("Pause");
+                DeactiveMenu();
             }
-        }   
+        }
+        
     }
-   public void Resume()
+    public void ActivateMenu()
     {
+        Time.timeScale = 0;
+        AudioListener.pause = true;
+        pauseMenuUI.SetActive(true);
+    }
+    public void DeactiveMenu()
+    {
+        Time.timeScale = 1;
+        AudioListener.pause = false;
         pauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
-        gameIsPaused = false;
-
     }
     public void Pause()
     {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
-        gameIsPaused = true;
+        isPaused = true;
     }
     public void LoadMenu()
     {
