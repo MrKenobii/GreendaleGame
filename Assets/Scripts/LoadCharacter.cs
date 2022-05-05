@@ -11,13 +11,14 @@ public class LoadCharacter : MonoBehaviour
     public Transform parent;
     public GameObject enemy;
     public GameObject clone;
-    public float movementSpeed = 200.0f;
+    //public float movementSpeed = 200.0f;
 
 
     void Start()
     {
         int selectedCharacter = PlayerPrefs.GetInt("selectedCharacter");
         Debug.Log(selectedCharacter);
+
         GameObject prefab = characterPrefabs[selectedCharacter];
         clone = Instantiate(prefab, spawnPoint.position, Quaternion.identity);
         clone.transform.position = new Vector3(spawnPoint.transform.position.x, spawnPoint.transform.position.y, 0);
@@ -30,27 +31,19 @@ public class LoadCharacter : MonoBehaviour
         cloneEnemy.transform.SetParent(parent);
         cloneEnemy.transform.localScale = new Vector3(1, 1, 1);
 
+
+
         clone.SetActive(true);
         cloneEnemy.SetActive(true);
+        
 
     }
     void Update()
     {
-        //if (Input.GetKey(KeyCode.D) || (Input.GetKey(KeyCode.RightArrow)))
-        //{
-        //    clone.transform.position += Vector3.right * movementSpeed * Time.deltaTime;
-            
-        //}
-        //else if (Input.GetKey(KeyCode.A) || (Input.GetKey(KeyCode.LeftArrow)))
-        //{
-        //    clone.transform.position += Vector3.right * -movementSpeed * Time.deltaTime;
-            
-        //}
 
-        
         
 
     }
-    
+
 
 }

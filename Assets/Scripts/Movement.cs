@@ -21,32 +21,50 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
+        CalculateMovements();
+
+        
+    }
+    void CalculateMovements()
+    {
         if (Input.GetKey(KeyCode.D) || (Input.GetKey(KeyCode.RightArrow)))
         {
-            transform.position += Vector3.right * movementSpeed * Time.deltaTime;
-
+            if (transform.position.x > 1543.0f)
+            {
+                Debug.Log("Sagi asti");
+                transform.position = new Vector3(1543.0f, transform.position.y, 0);
+            }
+            else
+            {
+                transform.position += Vector3.right * movementSpeed * Time.deltaTime;
+            }
         }
         else if (Input.GetKey(KeyCode.A) || (Input.GetKey(KeyCode.LeftArrow)))
         {
-            transform.position += Vector3.right * -movementSpeed * Time.deltaTime;
 
+            if (transform.position.x < 40.0f)
+            {
+                Debug.Log("Solu asti");
+                transform.position = new Vector3(40.0f, transform.position.y, 0);
+            }
+            else
+            {
+                transform.position += Vector3.right * -movementSpeed * Time.deltaTime;
+            }
         }
-        //else if (Input.GetKeyDown(KeyCode.Space) && !isJumping) // both conditions can be in the same branch
-        //{
-        //    _rigidBody2D.AddForce(Vector2.up * jumpHeight); // you need a reference to the RigidBody2D component
-        //    isJumping = true;
-        //}
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
+            Debug.Log("Fly");
             float jumpVelocity = 200f;
-            _rigidBody2D.velocity = Vector2.up * jumpVelocity; 
+            _rigidBody2D.velocity = Vector2.up * jumpVelocity;
         }
     }
     //private bool IsGrounded()
     //{
     //    RaycastHit2D raycastHit2D = Physics2D.BoxCast(boxCollider2D.bounds.center, boxCollider2D.bounds.size, 0f, Vector2.down * .1f);
     //    return raycastHit2D.collider != null;
-        
+
     //}
 
 }
