@@ -5,7 +5,7 @@ using UnityEngine;
 public class Beam : MonoBehaviour
 {
     public float speed = 1000f;
-    public int damage = 20;
+    public float damage = 20f;
     public Rigidbody2D rb;
     
     // Start is called before the first frame update
@@ -16,11 +16,16 @@ public class Beam : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        //Debug.Log(collision.name);
+        Debug.Log(collision.name + "ADFADSFSASFD");
         Pierce pierce = collision.GetComponent<Pierce>();
+        Player player = collision.GetComponent<Player>();
         if(pierce != null)
         {
             pierce.TakeDamage(damage);
+        }
+        if (player != null)
+        {
+            player.TakeDamage(damage);
         }
         Destroy(gameObject);
     }

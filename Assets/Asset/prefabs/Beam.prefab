@@ -249,4 +249,3 @@ MonoBehaviour:
   speed: 300
   damage: 20
   rb: {fileID: 9042654652550304735}
-  parent: {fileID: 988835799586057988, guid: 86d53b21d6b4048d79d01eca326a0052, type: 3}

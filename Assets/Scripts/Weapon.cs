@@ -27,4 +27,5 @@ public class Weapon : MonoBehaviour
         beamClone = Instantiate(beamPrefab, firePoint.position, firePoint.rotation);
         beamClone.transform.SetParent(parent);
     }
+
 }

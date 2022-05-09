@@ -58,6 +58,7 @@ public class Movement : MonoBehaviour
             Debug.Log("Fly");
             float jumpVelocity = 200f;
             _rigidBody2D.velocity = Vector2.up * jumpVelocity;
+            
         }
     }
     //private bool IsGrounded()
