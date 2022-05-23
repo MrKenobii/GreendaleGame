@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Beam : MonoBehaviour
 {
     public float speed = 1000f;
@@ -16,7 +16,7 @@ public class Beam : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.name + "ADFADSFSASFD");
+        //Debug.Log(collision.name);
         Pierce pierce = collision.GetComponent<Pierce>();
         Player player = collision.GetComponent<Player>();
         if(pierce != null)

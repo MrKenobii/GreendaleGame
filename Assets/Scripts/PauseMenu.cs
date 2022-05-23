@@ -43,12 +43,12 @@ public class PauseMenu : MonoBehaviour
     }
     public void LoadMenu()
     {
-        Debug.Log("Load Menu");
+        //Debug.Log("Load Menu");
         SceneManager.LoadScene("SampleScene");
     }
     public void QuitGame()
     {
-        Debug.Log("Quit Game");
+        //Debug.Log("Quit Game");
         Application.Quit();
     }
 }

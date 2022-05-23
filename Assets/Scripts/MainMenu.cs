@@ -15,14 +15,10 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // Starts the game
-
-        /*mainMenu.SetActive(false);
-        game.SetActive(true);
-        Debug.Log("Game is on");*/
     }
     public void QuitGame()
     {
-        Debug.Log("Quit");
+        //Debug.Log("Quit");
         Application.Quit(); // Quits the game
     }
     

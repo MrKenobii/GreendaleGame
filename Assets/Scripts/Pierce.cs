@@ -12,6 +12,7 @@ public class Pierce : MonoBehaviour
     public float timer = 0;
     public int waitingTime = 2;
     public GameObject healthBar;
+    public static bool isAlive = true;
     void Update()
     {
         timer += Time.deltaTime;
@@ -21,7 +22,7 @@ public class Pierce : MonoBehaviour
             timer = 0;
              
         }
-        //StartCoroutine(ShootEnemy());
+        
 
     }
     
@@ -29,14 +30,31 @@ public class Pierce : MonoBehaviour
     {
         health -= damage;
         healthBar.transform.localScale = new Vector3(health / 100, 1, 1);
-        if(health <= 0)
-        { 
+        //Debug.Log("Scene: " + SceneManager.GetActiveScene().name);
+        if(health <= 0 && SceneManager.GetActiveScene().name == "Level1")
+        {
             Die();
             SceneManager.LoadScene(2, LoadSceneMode.Single);
-        } 
+        }
+        else if (health <= 0 && SceneManager.GetActiveScene().name == "Level2")
+        {
+            Die();
+            SceneManager.LoadScene(3, LoadSceneMode.Single);
+        }
+        else if (health <= 0 && SceneManager.GetActiveScene().name == "Level3")
+        {
+            Die();
+            SceneManager.LoadScene(4, LoadSceneMode.Single);
+        }
+        else if (health <= 0 && SceneManager.GetActiveScene().name == "Final")
+        {
+            Die();
+            SceneManager.LoadScene(0, LoadSceneMode.Single);
+        }
     }
     public void Die()
     {
+        isAlive = false;
         Destroy(gameObject);
         
     }
@@ -46,10 +64,4 @@ public class Pierce : MonoBehaviour
         beamClone.transform.SetParent(parent);
         
     }
-    //IEnumerator ShootEnemy()
-    //{
-    //    beamClone = Instantiate(beamPrefab, firePoint.position, firePoint.rotation);
-    //    beamClone.transform.SetParent(parent);
-    //    yield return new WaitForSeconds(2);
-    //}
 }

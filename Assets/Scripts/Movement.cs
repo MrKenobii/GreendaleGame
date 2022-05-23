@@ -32,7 +32,7 @@ public class Movement : MonoBehaviour
         {
             if (transform.position.x > 1543.0f)
             {
-                Debug.Log("Sagi asti");
+                //Debug.Log("Right exceed");
                 transform.position = new Vector3(1543.0f, transform.position.y, 0);
             }
             else
@@ -45,7 +45,7 @@ public class Movement : MonoBehaviour
 
             if (transform.position.x < 40.0f)
             {
-                Debug.Log("Solu asti");
+                //Debug.Log("Left exceed");
                 transform.position = new Vector3(40.0f, transform.position.y, 0);
             }
             else
@@ -55,17 +55,11 @@ public class Movement : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            Debug.Log("Fly");
+            //Debug.Log("Fly");
             float jumpVelocity = 200f;
             _rigidBody2D.velocity = Vector2.up * jumpVelocity;
             
         }
     }
-    //private bool IsGrounded()
-    //{
-    //    RaycastHit2D raycastHit2D = Physics2D.BoxCast(boxCollider2D.bounds.center, boxCollider2D.bounds.size, 0f, Vector2.down * .1f);
-    //    return raycastHit2D.collider != null;
-
-    //}
 
 }
